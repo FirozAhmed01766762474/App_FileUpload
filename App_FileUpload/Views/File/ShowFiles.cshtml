@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "ShowFiles";
+}
+
+<h1 class="alert alert-info">ShowFiles</h1>
+<div class="row">
+    <div>
+        @if(ViewBag.files != null)
+        {
+            foreach(var f in ViewBag.files)
+            {
+                var ext = System.IO.Path.GetExtension(f);
+                var fn = System.IO.Path.GetFileName(f);
+                if(ext ==".jpg" || ext=="png" || ext=="gif")
+                {
+                    <div>
+                        <img src="~/myFolder/@fn"  style="width:200px;" />
+                    </div>
+
+                }
+                else
+                {
+                    <div>
+                        <h5>File is not a Image</h5>
+                    </div>
+                    
+                }
+            }
+        }
+    </div>
+
+</div>
+
